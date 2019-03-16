@@ -1,6 +1,5 @@
 import java.util.*;
 import java.io.*;
-import java.lang.String;
 
 public class MainDriver {
 	public static ArrayList<Ticket> tickets = new ArrayList<Ticket>();
@@ -55,6 +54,6 @@ public class MainDriver {
 	public static void main(String[] args) {
 		readAvailableTicketFile("available_ticketfile.tra");
 		readCurrentUserAccountFile("current_useraccount_file.cua");
-		// TODO : Finish main function
+		// TODO : Read from daily transaction file, Finish rest of main function
 	}
 }
