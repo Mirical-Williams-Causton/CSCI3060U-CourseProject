@@ -1,3 +1,11 @@
+/*
+ * Backend of the Ticket Selling Service
+ *
+ * @author  Mirical Williams-Causton
+ * @version 1.0
+ * @since   2019-03-16
+ */
+
 public class UpdateManager {
 	public static void createUser() {
 		// TODO: Complete - Add user to current users file
@@ -18,5 +26,10 @@ public class UpdateManager {
 
 	public static void refund() {
 		// TODO: Complete - Refund credit from seller to buyer, update credit amounts in current users account file
+	}
+
+	public static void buy() {
+		// TODO: Complete - Update number of tickets available
+		//				  - Make sure ticket amount isn't negative
 	}
 }
