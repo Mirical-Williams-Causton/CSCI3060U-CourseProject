@@ -51,9 +51,23 @@ public class MainDriver {
 		}
 	}
 
+	public static void readDailyTransactionFile(String filename) {
+		String line = "";
+		String[] contents;
+		try {
+			BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
+			while ((line = bufferedReader.readLine()) != null) {
+				// TODO: Read daily transaction file content into an arraylist
+			} bufferedReader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static void main(String[] args) {
 		readAvailableTicketFile("available_ticketfile.tra");
 		readCurrentUserAccountFile("current_useraccount_file.cua");
-		// TODO : Read from daily transaction file, Finish rest of main function
+		readDailyTransactionFile("daily_transaction_file.tra");
+		// TODO : Finish rest of main function
 	}
 }
