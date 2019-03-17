@@ -9,10 +9,10 @@
 
 00 USER01
 
-04 Celine Dion Show    USER04        100 020.09
+04 Celine Dion Show    USER04        002 020.09
 00 USER01
 
-04 Celine Dion Show    USER04        100 020.09
+04 Celine Dion Show    USER04        004 020.09
 00 USER03
 
 05 USER03          USER04          000100.00

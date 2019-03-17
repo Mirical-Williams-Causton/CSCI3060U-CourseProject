@@ -135,6 +135,9 @@ public class MainDriver {
 		readAvailableTicketFile("available_ticketfile.tra");
 		readCurrentUserAccountFile("current_useraccount_file.cua");
 		readDailyTransactionFile("daily_transaction_file.tra");
+
+		UpdateManager updateManager = new UpdateManager();
+		updateManager.buy(buyTransactions, tickets);
 		// TODO : Finish rest of main function
 	}
 }
