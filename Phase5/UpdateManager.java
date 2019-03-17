@@ -11,24 +11,25 @@ import java.text.*;
  */
 
 public class UpdateManager {
-	public static void createUser() {
-		// TODO: Complete - Add user to current users file
+	public static void createUser(ArrayList<Transaction> createTransactions, ArrayList<Account> accounts) {
+		// TODO: Complete - Add new users to the current user account file
+		// 				  - Check if user exists
 	}
 
-	public static void sellTicket() {
+	public static void sellTicket(ArrayList<Transaction> sellTransactions, ArrayList<Ticket> tickets) {
 		// TODO: Complete - Add event to available ticket file
 	}
 
-	public static void deleteUser() {
+	public static void deleteUser(ArrayList<Transaction> deleteTransactions, ArrayList<Account> accounts) {
 		// TODO: Complete - Delete user from current users file
 	}
 
-	public static void addCredit() {
+	public static void addCredit(ArrayList<Transaction> addCreditTransactions, ArrayList<Account> accounts) {
 		// TODO: Complete - Add credit onto a specific user in the current users account file
 		//				  - Subtract from user who added credit in the current users acount file
 	}
 
-	public static void refund() {
+	public static void refund(ArrayList<Transaction> refundTransactions, ArrayList<Account> accounts) {
 		// TODO: Complete - Refund credit from seller to buyer, update credit amounts in current users account file
 	}
 
@@ -43,15 +44,13 @@ public class UpdateManager {
 	 * @return 								Nothing
 	 */
 	public static void buy(ArrayList<Transaction> buyTransactions, ArrayList<Ticket> tickets) {
-		ArrayList<Transaction> transactions = buyTransactions;
-		ArrayList<Ticket> availableTickets = tickets;
 		int available_tickets, number_tickets, tickets_purchased;
 		String event_title;
 
 		for (Transaction transaction : buyTransactions) {
 			event_title = transaction.getEventTitle();
 			tickets_purchased = transaction.getNumberTickets();
-			for (Ticket ticket : availableTickets) {
+			for (Ticket ticket : tickets) {
 				if (event_title.equals(ticket.getEventTitle())) {
 					number_tickets = ticket.getNumberTickets();
 					available_tickets = number_tickets - tickets_purchased;
@@ -70,7 +69,7 @@ public class UpdateManager {
 
 			NumberFormat money_format = new DecimalFormat("#000.00");
 			
-			for (Ticket ticket : availableTickets) {
+			for (Ticket ticket : tickets) {
 				bufferedWriter.write(ticket.getEventTitle() + ticket.getSellerUsername() + 
 					String.format("%03d", ticket.getNumberTickets()) + " " + money_format.format(ticket.getTicketPrice()) + "\n");
 			}
