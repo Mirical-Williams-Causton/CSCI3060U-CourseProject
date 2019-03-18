@@ -120,6 +120,13 @@ public class Transaction {
 	String getBuyersUsername() { return this.buyers_username; }
 
 	/*
+	 * The getRefundCredit function gets the refund credit.
+	 *
+	 * @return 						The credit to be refunded
+	 */
+	Double getRefundCredit() { return this.refund_credit; }
+
+	/*
 	 * The setUsername function sets the user's username.
 	 *
 	 * @param 	username 		The first parameter of the setUsername method
@@ -182,4 +189,12 @@ public class Transaction {
 	 * @return 						Nothing
 	 */
 	void setBuyersUsername(String buyers_username) { this.buyers_username = buyers_username; }
+
+	/*
+	 * The setRefundCredit sets the refund credit.
+	 *
+	 * @param 	refund_credit 		The first parameter of the setRefundCredit method.
+	 * @return 						Nothing
+	 */
+	void setRefundCredit(float refund_credit) { this.refund_credit = refund_credit; }
 }
