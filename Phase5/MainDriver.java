@@ -137,7 +137,8 @@ public class MainDriver {
 		readDailyTransactionFile("daily_transaction_file.tra");
 
 		UpdateManager updateManager = new UpdateManager();
-		updateManager.buy(buyTransactions, tickets);
-		// TODO : Finish rest of main function
+		// updateManager.buy(buyTransactions, tickets); - Do not uncomment until testing, they are complete
+		// updateManager.addCredit(addCreditTransactions, accounts); - Do not uncomment until testing, they are complete
+		// TODO : Finish rest of main function after UpdateManager.java is completed
 	}
 }

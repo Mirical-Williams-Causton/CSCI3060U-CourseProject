@@ -24,9 +24,43 @@ public class UpdateManager {
 		// TODO: Complete - Delete user from current users file
 	}
 
+	/*
+	 * The addCredit function crossmatches each username from the add credit transaction with the corresponding
+	 * username in the current user account file and updates the available credit amount. After all user
+	 * accounts have been updated, the new user accounts file is written.
+	 *
+	 * @param 		addCreditTransactions 		The first parameter of the addCredit method
+	 * @param 		accounts 					The second parameter of the addCredit method
+	 * @return 									Nothing
+	 */
 	public static void addCredit(ArrayList<Transaction> addCreditTransactions, ArrayList<Account> accounts) {
-		// TODO: Complete - Add credit onto a specific user in the current users account file
-		//				  - Subtract from user who added credit in the current users acount file
+		String username;
+		float user_credit; 
+
+		for (Transaction transaction : addCreditTransactions) {
+			username = transaction.getUsername();
+			user_credit = transaction.getCredit();
+			for (Account account : accounts) {
+				if (username.trim().equals((account.getUsername()).trim())) {
+					account.setCredit(user_credit);
+				}
+			}
+		}
+
+		try {
+			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("current_useraccount_file.cua"));
+
+			NumberFormat money_format = new DecimalFormat("#000000.00");
+
+			for (Account account : accounts) {
+				bufferedWriter.write(account.getUsername() + account.getUserType() + " " + 
+					money_format.format(account.getCredit()) + "\n");
+			}
+
+			bufferedWriter.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static void refund(ArrayList<Transaction> refundTransactions, ArrayList<Account> accounts) {
