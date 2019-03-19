@@ -34,10 +34,10 @@ public class MainDriver {
 		try {
 			BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
 			while ((line = bufferedReader.readLine()) != null) {
-				String event_title = line.substring(0, 19);
-				String seller_username = line.substring(19, 33);
-				int number_tickets = Integer.parseInt(line.substring(33, 36));
-				float ticket_price = Float.parseFloat(line.substring(36, 43));
+				String event_title = line.substring(0, 25);
+				String seller_username = line.substring(26, 39);
+				int number_tickets = Integer.parseInt(line.substring(40, 43));
+				float ticket_price = Float.parseFloat(line.substring(44, 50));
 				tickets.add(new Ticket(event_title, seller_username, number_tickets, ticket_price));
 			} bufferedReader.close();
 		} catch (IOException e) {
@@ -58,8 +58,8 @@ public class MainDriver {
 			BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
 			while ((line = bufferedReader.readLine()) != null) {
 				String username = line.substring(0, 15);
-				String user_type = line.substring(15, 17);
-				float user_credit = Float.parseFloat(line.substring(18, 27));
+				String user_type = line.substring(16, 18);
+				float user_credit = Float.parseFloat(line.substring(19, 28));
 				accounts.add(new Account(username, user_type, user_credit));
 			} bufferedReader.close();
 		} catch (IOException e) {
@@ -83,26 +83,26 @@ public class MainDriver {
 			BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
 			while ((line = bufferedReader.readLine()) != null) {
 				if (line.startsWith("01")) {
-					username = line.substring(3, 24);
-					user_type = line.substring(25, 27);
-					user_credit = Float.parseFloat(line.substring(28, 37));
+					username = line.substring(3, 18);
+					user_type = line.substring(19, 21);
+					user_credit = Float.parseFloat(line.substring(22, 31));
 					createTransactions.add(new Transaction(username, user_type, user_credit));
 				} else if (line.startsWith("02")) {
-					username = line.substring(3, 24);
-					user_type = line.substring(25, 27);
-					user_credit = Float.parseFloat(line.substring(28, 37));
+					username = line.substring(3, 18);
+					user_type = line.substring(19, 21);
+					user_credit = Float.parseFloat(line.substring(22, 31));
 					deleteTransactions.add(new Transaction(username, user_type, user_credit));
 				} else if (line.startsWith("03")) {
-					event_title = line.substring(3, 22);
-					seller_username = line.substring(23, 36);
-					number_tickets = Integer.parseInt(line.substring(37, 40));
-					ticket_price = Float.parseFloat(line.substring(41, 47));
+					event_title = line.substring(3, 28);
+					seller_username = line.substring(29, 42);
+					number_tickets = Integer.parseInt(line.substring(43, 46));
+					ticket_price = Float.parseFloat(line.substring(47, 53));
 					sellTransactions.add(new Transaction(event_title, seller_username, number_tickets, ticket_price));
 				} else if (line.startsWith("04")) {
-					event_title = line.substring(3, 22);
-					seller_username = line.substring(23, 36);
-					number_tickets = Integer.parseInt(line.substring(37, 40));
-					ticket_price = Float.parseFloat(line.substring(41, 47));
+					event_title = line.substring(3, 28);
+					seller_username = line.substring(29, 42);
+					number_tickets = Integer.parseInt(line.substring(43, 46));
+					ticket_price = Float.parseFloat(line.substring(47, 53));
 					buyTransactions.add(new Transaction(event_title, seller_username, number_tickets, ticket_price));
 				} else if (line.startsWith("05")) {
 					buyers_username = line.substring(3, 18);
@@ -113,9 +113,9 @@ public class MainDriver {
 					if (line.contains("NA")) {
 						continue;
 					}
-					username = line.substring(3, 24);
-					user_type = line.substring(25, 27);
-					user_credit = Float.parseFloat(line.substring(28, 37));
+					username = line.substring(3, 18);
+					user_type = line.substring(19, 21);
+					user_credit = Float.parseFloat(line.substring(22, 31));
 					addCreditTransactions.add(new Transaction(username, user_type, user_credit));
 				}
 			} bufferedReader.close();
@@ -137,8 +137,12 @@ public class MainDriver {
 		readDailyTransactionFile("daily_transaction_file.tra");
 
 		UpdateManager updateManager = new UpdateManager();
-		// updateManager.buy(buyTransactions, tickets); - Do not uncomment until testing, they are complete
-		// updateManager.addCredit(addCreditTransactions, accounts); - Do not uncomment until testing, they are complete
-		// TODO : Finish rest of main function after UpdateManager.java is completed
+
+		//updateManager.buy(buyTransactions, tickets); // - Do not uncomment until testing, this function is complete
+		//updateManager.addCredit(addCreditTransactions, accounts); // - Do not uncomment until testing, this function is complete
+		//updateManager.deleteUser(deleteTransactions, accounts); // - Do not uncomment until testing, this function is complete
+		//updateManager.refund(refundTransactions, accounts); // - Do not uncomment until testing, this function is complete
+		//updateManager.createUser(createTransactions, accounts); // Do not uncomment until testing, this function is complete
+		//updateManager.sellTicket(sellTransactions, tickets); // Do not uncomment until testing, this function is complete
 	}
 }
