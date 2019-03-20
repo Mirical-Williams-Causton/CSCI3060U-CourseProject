@@ -39,7 +39,6 @@ public class UpdateManager {
 				} else {
 					found = false;
 				}
-				
 			}
 			if (found == false) {
 				users.add(new Account(username, user_type, user_credit));
@@ -52,12 +51,13 @@ public class UpdateManager {
 			NumberFormat money_format = new DecimalFormat("#000000.00");
 
 			for (Account account : users) {
-				bufferedWriter.write(account.getUsername() + "_" + account.getUserType() + "_" + 
+				bufferedWriter.write(account.getUsername() + " " + account.getUserType() + " " + 
 					money_format.format(account.getCredit()) + "\n");
 			}
 
 			bufferedWriter.close();
 		} catch (IOException e) {
+			System.err.println("Error: File not found.");
 			e.printStackTrace();
 		}
 	}
@@ -102,12 +102,13 @@ public class UpdateManager {
 			NumberFormat money_format = new DecimalFormat("#000.00");
 			
 			for (Ticket ticket : tickets) {
-				bufferedWriter.write(ticket.getEventTitle() + "_" + ticket.getSellerUsername() + "_" + 
-					String.format("%03d", ticket.getNumberTickets()) + "_" + money_format.format(ticket.getTicketPrice()) + "\n");
+				bufferedWriter.write(ticket.getEventTitle() + " " + ticket.getSellerUsername() + " " + 
+					String.format("%03d", ticket.getNumberTickets()) + " " + money_format.format(ticket.getTicketPrice()) + "\n");
 			}
 
 			bufferedWriter.close();
 		} catch (IOException e) {
+			System.err.println("Error: File not found.");
 			e.printStackTrace();
 		}
 	}
@@ -148,12 +149,13 @@ public class UpdateManager {
 			NumberFormat money_format = new DecimalFormat("#000000.00");
 
 			for (Account account : accounts) {
-				bufferedWriter.write(account.getUsername() + "_" + account.getUserType() + "_" + 
+				bufferedWriter.write(account.getUsername() + " " + account.getUserType() + " " + 
 					money_format.format(account.getCredit()) + "\n");
 			}
 
 			bufferedWriter.close();
 		} catch (IOException e) {
+			System.err.println("Error: File not found.");
 			e.printStackTrace();
 		}
 	}
@@ -187,12 +189,13 @@ public class UpdateManager {
 			NumberFormat money_format = new DecimalFormat("#000000.00");
 
 			for (Account account : accounts) {
-				bufferedWriter.write(account.getUsername() + "_" + account.getUserType() + "_" + 
+				bufferedWriter.write(account.getUsername() + " " + account.getUserType() + " " + 
 					money_format.format(account.getCredit()) + "\n");
 			}
 
 			bufferedWriter.close();
 		} catch (IOException e) {
+			System.err.println("Error: File not found.");
 			e.printStackTrace();
 		}
 	}
@@ -230,12 +233,13 @@ public class UpdateManager {
 			NumberFormat money_format = new DecimalFormat("#000000.00");
 
 			for (Account account : accounts) {
-				bufferedWriter.write(account.getUsername() + "_" + account.getUserType() + "_" + 
+				bufferedWriter.write(account.getUsername() + " " + account.getUserType() + " " + 
 					money_format.format(account.getCredit()) + "\n");
 			}
 
 			bufferedWriter.close();
 		} catch (IOException e) {
+			System.err.println("Error: File not found.");
 			e.printStackTrace();
 		}
 	}
@@ -277,12 +281,13 @@ public class UpdateManager {
 			NumberFormat money_format = new DecimalFormat("#000.00");
 			
 			for (Ticket ticket : tickets) {
-				bufferedWriter.write(ticket.getEventTitle() + "_" + ticket.getSellerUsername() + "_" + 
-					String.format("%03d", ticket.getNumberTickets()) + "_" + money_format.format(ticket.getTicketPrice()) + "\n");
+				bufferedWriter.write(ticket.getEventTitle() + " " + ticket.getSellerUsername() + " " + 
+					String.format("%03d", ticket.getNumberTickets()) + " " + money_format.format(ticket.getTicketPrice()) + "\n");
 			}
 
 			bufferedWriter.close();
 		} catch (IOException e) {
+			System.err.println("Error: File not found.");
 			e.printStackTrace();
 		}
 	}

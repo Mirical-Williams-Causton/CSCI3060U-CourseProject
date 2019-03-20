@@ -138,11 +138,11 @@ public class MainDriver {
 
 		UpdateManager updateManager = new UpdateManager();
 
-		//updateManager.buy(buyTransactions, tickets); // - Do not uncomment until testing, this function is complete
-		//updateManager.addCredit(addCreditTransactions, accounts); // - Do not uncomment until testing, this function is complete
-		//updateManager.deleteUser(deleteTransactions, accounts); // - Do not uncomment until testing, this function is complete
-		//updateManager.refund(refundTransactions, accounts); // - Do not uncomment until testing, this function is complete
-		//updateManager.createUser(createTransactions, accounts); // Do not uncomment until testing, this function is complete
-		//updateManager.sellTicket(sellTransactions, tickets); // Do not uncomment until testing, this function is complete
+		// updateManager.buy(buyTransactions, tickets); // - Do not uncomment until testing, this function is complete
+		// updateManager.addCredit(addCreditTransactions, accounts); // - Do not uncomment until testing, this function is complete
+		// updateManager.deleteUser(deleteTransactions, accounts); // - Do not uncomment until testing, this function is complete
+		// updateManager.refund(refundTransactions, accounts); // - Do not uncomment until testing, this function is complete
+		// updateManager.createUser(createTransactions, accounts); // Do not uncomment until testing, this function is complete
+		// updateManager.sellTicket(sellTransactions, tickets); // Do not uncomment until testing, this function is complete
 	}
 }
