@@ -4,7 +4,7 @@ This is the repository contains the course project for the course CSCI3060U. In 
 ## Phases:
 - Phase #4: Completed
 - Phase #5: In-progress (Due Wednesday, March 20th, 2019)
-- Phase #6: Not-completed (Due after the completion of phase #5)
+- Phase #6: In-progress (Due Wednesday, March 27th, 2019)
 
 ## Group Members:
 - Agilan Ampigaipathar
