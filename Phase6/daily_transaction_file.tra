@@ -1,0 +1,81 @@
+01 USER01          AA 000100.99
+00 USER01
+
+01 USER09          BS 000100.99
+00 USER01
+
+02 USER02          FS_000100.00
+00 USER01
+
+02 USER04          FS_000100.00
+00 USER01
+
+00 USER01
+
+04 Celine Dion Show          USER04        002 020.09
+00 USER01
+
+04 Dumbo                     USER04        004 020.09
+00 USER03
+
+04 Celine Dion Show          USER04        004 020.09
+00 USER03
+
+05 USER03          USER04          000100.00
+00 USER01
+
+05 USER03          USER04          000150.00
+00 USER01
+
+06 USER02          FS 000200.00
+00 USER01
+
+06 USER04          SS 010899.99
+00 USER01
+
+06 NA              NA 000100.00
+00 USER03
+
+00 USER01
+
+00 USER01
+
+01 USER05          BS 000500.99
+00 USER01
+
+01 USER06          SS 000900.99
+00 USER01
+
+01 USER10          BS 001900.00
+00 USER01
+
+03 HTTYD                     USER01        020 020.99
+00 USER01
+
+03 Celine Dion Show          USER04        020 070.99
+00 USER04
+
+01 USER05          AA 000100.00
+00 USER01
+
+01 USER011         BS 000900.00
+00 USER01
+
+01 USER012         FS 001000.00
+00 USER01
+
+04 Celine Dion Show          USER04        004 120.09
+00 USER02
+
+05 USER03          USER04          000100.00
+00 USER01
+
+05 USER03          USER04          000150.99
+00 USER01
+
+06 USER04          SS 010099.99
+00 USER01
+
+06 NA              NA 000100.00
+00 USER02
+
