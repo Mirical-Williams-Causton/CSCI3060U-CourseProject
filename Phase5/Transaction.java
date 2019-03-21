@@ -124,7 +124,7 @@ public class Transaction {
 	 *
 	 * @return 						The credit to be refunded
 	 */
-	Double getRefundCredit() { return this.refund_credit; }
+	double getRefundCredit() { return this.refund_credit; }
 
 	/*
 	 * The setUsername function sets the user's username.
@@ -196,5 +196,5 @@ public class Transaction {
 	 * @param 	refund_credit 		The first parameter of the setRefundCredit method.
 	 * @return 						Nothing
 	 */
-	void setRefundCredit(float refund_credit) { this.refund_credit = refund_credit; }
+	void setRefundCredit(double refund_credit) { this.refund_credit = refund_credit; }
 }
