@@ -1,3 +1,6 @@
+import org.junit.Before;
+import org.junit.Test;
+
 import static org.junit.Assert.*;
 import java.util.*;
 import java.io.*;
@@ -5,90 +8,138 @@ import java.text.*;
 
 public class UpdateManagerTest {
 
+    //@Before
+    ArrayList<Account> accounts = new ArrayList<Account>();
+    ArrayList<Ticket> tickets = new ArrayList<Ticket>();
+
+    public void initialAccounts(){
+        accounts.add(new Account("USER01", "AA", 100.00f));
+        accounts.add(new Account("USER02", "BS", 1200.39f));
+        accounts.add(new Account("USER03", "FS", 90.00f));
+        accounts.add(new Account("USER04", "SS", 10000.09f));
+    };
+
+    public void initialTickets() {
+        tickets.add(new Ticket("Celine Dion Show", "USER04", 100, 120.09f));
+        tickets.add(new Ticket("Dumbo", "USER05", 0, 10.10f));
+    };
+
+    //create() tests
     @org.junit.Test
     public void createUser() {
-        String[] userName= {"Buyer05        "};
-        String[] user_type = {"BS"};
-        String[] user_credit = {"0000000.00"};
-        ArrayList<Transaction> createTransactions = UpdateManager.createUser();
-        ArrayList<Transaction> create = new ArrayList<>();
-        create.add(userName, user_type, user_credit);
-        assertEquals(createTransactions.toArray(),create.toArray());
+            ArrayList<Transaction> users = new ArrayList<Transaction>();
+            users.add(new Transaction("USER01", "AA", 100.00f));
+            for (Transaction transaction : users) {
+                for (Account account : accounts) {
+                    assertTrue(account.getUsername() == transaction.getUsername());
+                }
+            }
+    }
 
+    @org.junit.Test
+    public void createUserExisted() {
+        ArrayList<Transaction> users = new ArrayList<Transaction>();
+        users.add(new Transaction("USER08", "AA", 100.00f));
+        for (Transaction transaction : users) {
+            for (Account account : accounts) {
+                assertTrue(account.getUsername() == transaction.getUsername());
+            }
+        }
+    }
+
+    @org.junit.Test
+    public void userAdded() {
+        ArrayList<Transaction> users = new ArrayList<Transaction>();
+        users.add(new Transaction("USER08", "AA", 100.00f));
+        for (Transaction transaction : users) {
+            for (Account account : accounts) {
+                assertTrue(account.getUsername() == transaction.getUsername());
+            }
+        }
     }
 
     @org.junit.Test
     public void sellTicket() {
-        String[] event_title = {"Concert                   "};
-        String[] seller_userName = {"Admin01       "};
-        String[] number_tickets = {"100"};
-        String[] ticket_price = {"045.00"};
-        ArrayList<Transaction> sellTransactions = UpdateManager.sellTicket();
-        ArrayList<Transaction> sell = new ArrayList<>();
-        sell.add(event_title, seller_userName,number_tickets,ticket_price);
-        assertEquals(sellTransactions.toArray(),sell.toArray());
+        ArrayList<Transaction> newTicket = new ArrayList<Transaction>();
+        newTicket.add(new Transaction("Dumbo", "USER05", 0, 10.10f));
+        for (Transaction transaction : newTicket) {
+            for (Ticket ticket : tickets) {
+                assertTrue(transaction.getEventTitle() == ticket.getEventTitle() && transaction.getSellerUsername() == ticket.getSellerUsername());
+            }
+        }
+
     }
 
+
     @org.junit.Test
-    public void deleteUser() {
-        String[] userName = {"Buyer05        "};
-        ArrayList<Transaction> deleteTransactions = UpdateManager.deleteUser();
-        ArrayList<Transaction> delete = new ArrayList<>();
-        delete.add(userName);
-        assertEquals(deleteTransactions.toArray(),delete.toArray());
+    public void userDeleted() {
+        accounts.remove("USER01");
+        for (Account account : accounts) {
+            assertTrue(account.getUsername() == "USER01");
+        }
     }
 
     @org.junit.Test
     public void addCredit() {
-        String[] userName = {"UserExist      "};
-        String[] userCredit = {"0000020.00"};
-        ArrayList<Transaction> addCreditTransactions = UpdateManager.addCredit();
-        ArrayList<Transaction> addCredit = new ArrayList<>();
-        addCredit.add(userName, userCredit);
-        assertEquals(addCreditTransactions.toArray(),addCredit.toArray());
+        String username ="USER01";
+        float added_credit = 20.00f;
+
+        for (Account account: accounts) {
+            if (username.equals(account.getUsername())) {
+                float userCredit = account.getCredit() + added_credit;
+                account.setCredit(userCredit);
+                assertTrue(account.getCredit() == 120.0f);
+            }
+        }
+
     }
 
     @org.junit.Test
-    public void refund() {
-        String[] buyerName = {"User01         "};
-        String[] sellerName= {"Seller01       "};
-        String[] refundCredit= {"0000020.00"};
-        ArrayList<Transaction> refundTransactions = UpdateManager.refund();
-        ArrayList<Transaction> refund = new ArrayList<>();
-        refund.add(buyerName, sellerName, refundCredit);
-        assertEquals(refundTransactions.toArray(),refund.toArray());
+    public void creditRefunded() {
+        String buyer_username = "USER02";
+        String seller_username = "USER04";
+        float refund_credit = 100.00f;
+
+        for (Account account : accounts) {
+            if (buyer_username.equals(account.getUsername())) {
+                float buyer_available_credit = account.getCredit() + refund_credit;
+                account.setCredit(buyer_available_credit);
+                assertTrue(account.getCredit() == 1300.39f);
+            } else if (seller_username.equals(account.getUsername())) {
+                float seller_available_credit = account.getCredit() - refund_credit;
+                account.setCredit(seller_available_credit);
+                assertTrue(account.getCredit() == 9900.09f);
+            }
+        }
     }
 
-    // with invalid credit
     @org.junit.Test
-    public void refund() {
-        String[] buyerName = {"User01         "};
-        String[] sellerName= {"Seller01       "};
-        String[] refundCredit= {"0000000.00"};
-        ArrayList<Transaction> refundTransactions = UpdateManager.refund();
-        ArrayList<Transaction> refund = new ArrayList<>();
-        refund.add(buyerName, sellerName, refundCredit);
-        assertEquals(refundTransactions.toArray(),refund.toArray());
+
+    public void eventExists() {
+        for (Ticket ticket : tickets) {
+            assertTrue(ticket.getEventTitle() == "Celine Dion Show");
+        }
     }
 
+    @org.junit.Test
+    public void updateTicketAmount() {
+        int ticket_purchased = 9;
+        for (Ticket ticket : tickets) {
+            if (ticket.getEventTitle() == "Celine Dion Show") {
+                ticket.setNumberTickets(ticket.getNumberTickets() - ticket_purchased);
+                assertTrue(ticket.getNumberTickets() == 91);
+            }
+        }
+    }
 
     @org.junit.Test
-    public void buy() {
-        String[] eventTitle = {"opera                     "};
-        String[] ticketsPusrchased = {"001"};
-        ArrayList<Transaction> buyTransactions = UpdateManager.buy();
-        ArrayList<Transaction> buy = new ArrayList<>();
-        buy.add(eventTitle, ticketsPusrchased);
-        assertEquals(buyTransactions.toArray(),buy.toArray());
-    }
-    // with invalid ticketpurchase number
-    @org.junit.Test
-    public void buy1() {
-        String[] eventTitle = {"opera                     "};
-        String[] ticketsPusrchased = {"000"};
-        ArrayList<Transaction> buyTransactions = UpdateManager.buy();
-        ArrayList<Transaction> buy = new ArrayList<>();
-        buy.add(eventTitle, ticketsPusrchased);
-        assertEquals(buyTransactions.toArray(),buy.toArray());
+    public void negativeTicketAmount() {
+        int ticket_purchased = 9;
+        for (Ticket ticket : tickets) {
+            if (ticket.getEventTitle() == "Dumbo") {
+                ticket.setNumberTickets(ticket.getNumberTickets() - ticket_purchased);
+                assertTrue(ticket.getNumberTickets() < 0);
+            }
+        }
     }
 }
