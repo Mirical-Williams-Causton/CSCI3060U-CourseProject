@@ -116,7 +116,7 @@ void login(string currUser){
 void logout(string transactionCode, string username, float credit, string userType, string title, string seller, int tickets, float price, string buyer) {
     if (transactionSuccessful == true) {
         ofstream file;
-        file.open(daily_transaction_file.c_str(), fstream::app);
+        file.open(daily_transaction_file.c_str());
 
         if (transactionCode == "01") {
             file << transactionCode << " " << username << setw(16-username.length()) << setfill(' ') << 
@@ -183,7 +183,7 @@ void logout(string transactionCode, string username, float credit, string userTy
 
     } else {
         ofstream file;
-        file.open(daily_transaction_file.c_str(), fstream::app);
+        file.open(daily_transaction_file.c_str());
 
         file << "00" << "_" << currentUserName << "\n\n";
 
