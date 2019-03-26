@@ -185,7 +185,7 @@ void logout(string transactionCode, string username, float credit, string userTy
         ofstream file;
         file.open(daily_transaction_file.c_str());
 
-        file << "00" << "_" << currentUserName << "\n\n";
+        file << "00" << " " << currentUserName << "\n\n";
 
         file.close();
 
@@ -743,10 +743,10 @@ void options(bool login_status) {
  *
  * @return Nothing
  */
-int main(int argc, char const *argv[]) {
-    current_useraccount_file = argv[1];
-    available_ticketfile = argv[2];
-    daily_transaction_file = argv[3];
+int main() {
+    current_useraccount_file = "../current_useraccount_file.cua";
+    available_ticketfile = "../available_ticketfile.tra";
+    daily_transaction_file = "../merged_daily_transaction_file.tra";
 
     string input1;
 
@@ -766,7 +766,7 @@ int main(int argc, char const *argv[]) {
         if (input1 == "login") {
             correctInput = true;
             cout << "\nEnter username" << endl;
-            cin >> currentUserName;
+            getline(cin >> ws, currentUserName);
             login (currentUserName);
         } else  {
             cout << "Error: Please type 'login' to login into the system." << endl;

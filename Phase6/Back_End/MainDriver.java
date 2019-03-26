@@ -132,17 +132,17 @@ public class MainDriver {
 	 * @return 		Nothing
 	 */
 	public static void main(String[] args) {
-		readAvailableTicketFile("available_ticketfile.tra");
-		readCurrentUserAccountFile("current_useraccount_file.cua");
-		readDailyTransactionFile("daily_transaction_file.tra");
+		readAvailableTicketFile("../available_ticketfile.tra");
+		readCurrentUserAccountFile("../current_useraccount_file.cua");
+		readDailyTransactionFile("../merged_daily_transaction_file.tra");
 
 		UpdateManager updateManager = new UpdateManager();
 
-		// updateManager.buy(buyTransactions, tickets); // - Do not uncomment until testing, this function is complete
-		// updateManager.addCredit(addCreditTransactions, accounts); // - Do not uncomment until testing, this function is complete
-		// updateManager.deleteUser(deleteTransactions, accounts); // - Do not uncomment until testing, this function is complete
-		// updateManager.refund(refundTransactions, accounts); // - Do not uncomment until testing, this function is complete
-		// updateManager.createUser(createTransactions, accounts); // Do not uncomment until testing, this function is complete
-		// updateManager.sellTicket(sellTransactions, tickets); // Do not uncomment until testing, this function is complete
+		updateManager.buy(buyTransactions, tickets);
+		updateManager.addCredit(addCreditTransactions, accounts);
+		updateManager.deleteUser(deleteTransactions, accounts);
+		updateManager.refund(refundTransactions, accounts);
+		updateManager.createUser(createTransactions, accounts);
+		updateManager.sellTicket(sellTransactions, tickets);
 	}
 }
