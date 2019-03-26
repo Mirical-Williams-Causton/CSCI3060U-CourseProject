@@ -12,10 +12,10 @@ This is the repository contains the course project for the course CSCI3060U. In 
 - Yi Guo
 
 ## How to Run:
-$ cd Phase6
-$ cd Front_End
-$ make
-$ cd ../Back_End
-$ make
-$ cd ..
-$ bash weekly.sh
+- $ cd Phase6
+- $ cd Front_End
+- $ make
+- $ cd ../Back_End
+- $ make
+- $ cd ..
+- $ bash weekly.sh
