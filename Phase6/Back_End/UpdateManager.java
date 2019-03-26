@@ -46,7 +46,7 @@ public class UpdateManager {
 		}
 
 		try {
-			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("current_useraccount_file.cua"));
+			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("../current_useraccount_file.cua"));
 
 			NumberFormat money_format = new DecimalFormat("#000000.00");
 
@@ -97,7 +97,7 @@ public class UpdateManager {
 		}
 
 		try {
-			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("available_ticketfile.tra"));
+			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("../available_ticketfile.tra"));
 
 			NumberFormat money_format = new DecimalFormat("#000.00");
 			
@@ -144,7 +144,7 @@ public class UpdateManager {
 		}
 
 		try {
-			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("current_useraccount_file.cua"));
+			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("../current_useraccount_file.cua"));
 
 			NumberFormat money_format = new DecimalFormat("#000000.00");
 
@@ -184,7 +184,7 @@ public class UpdateManager {
 		}
 
 		try {
-			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("current_useraccount_file.cua"));
+			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("../current_useraccount_file.cua"));
 
 			NumberFormat money_format = new DecimalFormat("#000000.00");
 
@@ -228,7 +228,7 @@ public class UpdateManager {
 		}
 
 		try {
-			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("current_useraccount_file.cua"));
+			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("../current_useraccount_file.cua"));
 
 			NumberFormat money_format = new DecimalFormat("#000000.00");
 
@@ -276,7 +276,7 @@ public class UpdateManager {
 		}
 
 		try {
-			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("available_ticketfile.tra"));
+			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("../available_ticketfile.tra"));
 
 			NumberFormat money_format = new DecimalFormat("#000.00");
 			
